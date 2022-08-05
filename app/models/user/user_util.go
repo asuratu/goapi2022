@@ -1,3 +1,5 @@
+// Package user
+//本文件的方法相当于静态方法，不需要实例化
 package user
 
 import (
