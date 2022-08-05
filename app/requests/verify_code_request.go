@@ -88,7 +88,7 @@ func VerifyCodeEmail(data interface{}, c *gin.Context) map[string][]string {
 	errs := validate(data, rules, messages)
 
 	// 图片验证码
-	_data := data.(*VerifyCodePhoneRequest)
+	_data := data.(*VerifyCodeEmailRequest)
 	errs = validators.ValidateCaptcha(_data.CaptchaID, _data.CaptchaAnswer, errs)
 
 	return errs
