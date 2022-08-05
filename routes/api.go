@@ -29,6 +29,8 @@ func RegisterAPIRoutes(r *gin.Engine) {
 			authGroup.POST("/signup/email/exist", suc.IsEmailExist)
 			// 使用手机和验证码进行注册
 			authGroup.POST("/signup/using-phone", suc.SignupUsingPhone)
+			// 使用邮箱和验证码进行注册
+			authGroup.POST("/signup/using-email", suc.SignupUsingEmail)
 
 			// 发送验证码
 			vcc := new(auth.VerifyCodeController)
