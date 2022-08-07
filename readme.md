@@ -16,3 +16,5 @@
 ``go run main.go seed SeedCategoriesTable``
 ## 填充全部 seeder
 ``go run main.go seed``
+## 生成policy文件
+``go run main.go make policy category``
