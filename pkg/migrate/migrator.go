@@ -84,13 +84,13 @@ func (migrator *Migrator) Up() {
 // Rollback 回滚上一个操作
 func (migrator *Migrator) Rollback() {
 
-	// 获取最后一批次的迁移数据
+	// 获取最后一个批次的迁移数据
 	lastMigration := Migration{}
 	migrator.DB.Order("id DESC").First(&lastMigration)
 	migrations := []Migration{}
 	migrator.DB.Where("batch = ?", lastMigration.Batch).Order("id DESC").Find(&migrations)
 
-	// 回滚最后一批次的迁移
+	// 回滚最后一个批次的迁移
 	if !migrator.rollbackMigrations(migrations) {
 		console.Success("[migrations] table is empty, nothing to rollback.")
 	}
