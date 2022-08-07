@@ -94,3 +94,7 @@ func RegisterAPIRoutes(r *gin.Engine) {
 
 	}
 }
+
+func RegisterStaticRoutes(r *gin.Engine) {
+	r.Static("/uploads", "./public/uploads")
+}
