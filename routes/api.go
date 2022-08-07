@@ -65,6 +65,7 @@ func RegisterAPIRoutes(r *gin.Engine) {
 		// 分类相关的路由分组
 		cgcGroup := v1.Group("/categories")
 		{
+			cgcGroup.GET("", cgc.Index)
 			cgcGroup.POST("", middlewares.AuthJWT(), cgc.Store)
 			cgcGroup.PUT("/:id", middlewares.AuthJWT(), cgc.Update)
 		}
