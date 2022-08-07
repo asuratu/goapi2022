@@ -1,17 +1,16 @@
 package v1
 
 import (
-    "gohub/app/models/link"
-    "gohub/pkg/response"
+	"gohub/app/models/link"
+	"gohub/pkg/response"
 
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 type LinksController struct {
-    BaseAPIController
+	BaseAPIController
 }
 
 func (ctrl *LinksController) Index(c *gin.Context) {
-    links := link.All()
-    response.Data(c, links)
+	response.Data(c, link.AllCached())
 }
